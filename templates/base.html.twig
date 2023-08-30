@@ -1,16 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			{% block title %}Xavier Depoortere
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+		<link rel="icon" href="">
+		{% block stylesheets %}
+			<link rel="preconnect" href="https://fonts.googleapis.com">
 
-        {% block javascripts %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+			<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Josefin+Sans:wght@100&family=Nova+Round&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="{{ asset('css/global.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/home.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/competence.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+			<link rel="stylesheet" href="{{ asset('css/portfolio.css') }}">
+		{% endblock %}
+		{% block javascripts %}{% endblock %}
+	</head>
+	<body>
+		<div class="body">
+			{% include("inc/nav.html.twig") %}
+
+
+			{% block body %}{% endblock %}
+		</div>
+
+
+	</body>
 </html>

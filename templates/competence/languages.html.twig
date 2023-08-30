@@ -1,0 +1,36 @@
+<div class="languagesFrameworks">
+	<div class="languagesDisplay">
+		<h3>languages</h3>
+		<div class="years">
+			<span>Années d'experience</span>
+			<span>{{beforeYearNumber}}
+				{{beforeValue}}</span>
+			<span>{{ lastYearNumber }}
+				{{ lastValue }}</span>
+		</div>
+		<div class="languagesList">
+			{% for language in languageList %}
+				<li>{{ language.name | capitalize }}</li>
+				<div class="progressBar" style="width:{{(language.xp / lastYearNumber)*100}}%;"></div>
+			{% endfor %}
+
+
+		</div>
+	</div>
+	<div class="frameworkDisplay">
+		<h3>frameworks & bibliothèques</h3>
+		<div class="years">
+			<span>Années d'experience</span>
+			<span>{{beforeYearNumber}}
+				{{beforeValue}}</span>
+		</span>
+		<span>{{ lastYearNumber }}
+			{{ lastValue }}</span>
+	</div>
+	<div class="languagesList">
+		{% for framework in frameworkList %}
+			<li>{{ framework.name | capitalize }}</li>
+			<div class="progressBar" style="width:{{(framework.xp / lastYearNumber)*100}}%;"></div>
+		{% endfor %}
+	</div>
+</div></div>

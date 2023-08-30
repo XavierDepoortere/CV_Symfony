@@ -1,0 +1,72 @@
+.homeContent {
+  display: flex;
+  margin-left: 0.4rem;
+  background: linear-gradient(115deg, rgb(42, 29, 82) 45%, transparent 100%);
+  min-height: 95vh;
+  width: 930px;
+  max-height: 100%;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.homeContent:after {
+  content: "";
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: inherit;
+  background: url("../../media/homeXavier.jpg") no-repeat center/cover;
+  z-index: -1;
+  filter: brightness(35%);
+}
+
+.content {
+  position: absolute;
+  font-family: Nova Round, cursive;
+  top: 20%;
+  left: 13%;
+}
+
+.content h1 {
+  font-size: 5rem;
+  font-family: Josefin Sans, serif;
+  color: rgb(54, 164, 233);
+  text-transform: uppercase;
+  text-shadow: 3px 6px 2px #333;
+}
+.content h2 {
+  font-size: 2.5rem;
+  padding: 1.5rem 0 7rem;
+  color: rgb(99, 164, 233);
+  text-shadow: 1px 4px 1px #333;
+}
+.content .pdf a {
+  font-size: 1.5rem;
+  background: rgb(99, 164, 233);
+  padding: 1rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 1px rgb(15, 15, 15);
+  transition: 0.2s ease;
+}
+.content .pdf a:hover {
+  background: 15px;
+}
+/* 
+@media screen and (max-width: 850px) {
+  .homeContent {
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .homeContent:after {
+    background: url("../../media/homeXavier.jpg") no-repeat 60% 50% / cover !important;
+  }
+  .homeContent .content h1 {
+    font-size: 2.5rem !important;
+  }
+  .homeContent .content h2 {
+    font-size: 1.5rem !important;
+  }
+} */

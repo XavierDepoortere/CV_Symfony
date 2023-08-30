@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CompetenceController!
+{% endblock %}
+
+{% block body %}
+
+
+	<div class="knowledgesContent">
+
+		{% include("competence/experience.html.twig") %}
+		{% include("competence/otherSkills.html.twig") %}
+		{% include("competence/hobbies.html.twig") %}
+		{% include("competence/languages.html.twig") %}
+	</div>
+
+{% endblock %}

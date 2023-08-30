@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PortfolioController!
+{% endblock %}
+
+{% block body %}
+	<div class="portfolioContent">
+		<ul class="radioDisplay">
+			{% for language in languageList %}
+				<li>
+					<input type="radio" name="radio" checked="" value="{{ language.name }}" id="{{language.id}}"/>
+					<label for="{{ language.name }}">{{ language.name }}</label>
+				</li>
+			{% endfor %}
+
+		</ul>
+
+		<div class="projets">
+			<div class="project">
+				<div class="icons">
+					<i class="fab fa-sass"></i>
+					<i class="fab fa-bootstrap"></i>
+					<i class="fab fa-tailwindui"></i>
+				</div>
+				<h3>lorem.fr</h3>
+				<img src="https://github.com/XavierDepoortere/img/blob/main/project1.JPG?raw=true" alt="">
+				<span class="infos">
+					<i class="fas fa-plus-circle"></i>
+				</span>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 1rem auto;
+  max-width: 1200px;
+  font-family: Nova Round, cursive;
+  color: #ddd;
+  display: flex;
+}
+.body {
+  display: flex;
+
+  @media screen and (max-width: 850px) {
+    display: block !important;
+  }
+}
+button {
+  cursor: pointer;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+a:visited {
+  color: #333;
+}
