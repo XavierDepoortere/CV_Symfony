@@ -9,7 +9,7 @@
     "1"
     "2";
 }
-.radioDisplay {
+form {
   grid-area: 1;
   border-radius: 15px;
   display: flex;
@@ -19,8 +19,13 @@
   background: #24285b;
   user-select: none;
   box-shadow: 0 1px 3px #333;
+  justify-content: center;
+  align-items: center;
 }
-.radioDisplay li {
+#search_data_language {
+  display: flex;
+}
+form label {
   color: rgb(99, 164, 233);
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -30,6 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 3rem;
 }
 input[type="radio"] {
   visibility: hidden;
@@ -48,6 +54,7 @@ input[type="radio"]:before {
   border: 2px solid rgb(79, 237, 210);
   cursor: pointer;
   transition: 0.3s;
+  margin-left: 1rem;
 }
 input[type="radio"]:after {
   content: "";
@@ -63,6 +70,7 @@ input[type="radio"]:after {
   background: rgb(79, 237, 210);
   transform: scale(0);
   transform-origin: center;
+  margin-left: 1rem;
 }
 input:checked:after {
   transform: scale(1.17) translate(-25%, -25%);
@@ -146,4 +154,73 @@ label {
 }
 .infos:hover {
   transform: scale(1.1);
+}
+.projets .showInfos {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.507);
+  animation: popup 0.3s ease forwards;
+  transform-origin: center;
+}
+.showInfos .infosContent {
+  position: relative;
+  top: 25%;
+  width: 600px;
+  margin: 0 auto;
+  color: rgb(54, 164, 233);
+  background: #24285b;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 10px #333;
+  animation: popup 0.6s ease forwards;
+  transform: scale(0);
+  transform-origin: center;
+}
+.hidden {
+  display: none;
+}
+@keyframes popup {
+  to {
+    transform: scale(1);
+  }
+}
+.infosContent .button {
+  cursor: pointer;
+  color: rgb(42, 29, 82);
+  background: rgb(54, 164, 233);
+  border-radius: 15px;
+  padding: 1rem;
+  transition: 0.2s;
+}
+.infosContent .button:hover {
+  background: rgb(79, 237, 210);
+}
+.infosContent .head {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+.infosContent h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.infosContent .h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+  color: rgb(54, 164, 233);
+}
+.infosContent .h2:hover {
+  color: rgb(79, 237, 210);
+}
+.infosContent .text {
+  text-align: justify;
+  padding-bottom: 1rem;
+}
+
+.infosContent .return {
+  margin: 1rem auto;
+  width: 200px;
 }

@@ -5,29 +5,86 @@
 
 {% block body %}
 	<div class="portfolioContent">
-		<ul class="radioDisplay">
-			{% for language in languageList %}
-				<li>
-					<input type="radio" name="radio" checked="" value="{{ language.name }}" id="{{language.id}}"/>
-					<label for="{{ language.name }}">{{ language.name }}</label>
-				</li>
-			{% endfor %}
+		{{ form_start(form, {'attr': {'id': 'search-form'}}) }}
+		{% for field in form %}
+			{{ form_row(field) }}
+		{% endfor %}
 
-		</ul>
+		{{ form_end(form) }}
+
 
 		<div class="projets">
-			<div class="project">
-				<div class="icons">
-					<i class="fab fa-sass"></i>
-					<i class="fab fa-bootstrap"></i>
-					<i class="fab fa-tailwindui"></i>
+			{% for projet in projetList %}
+				<div class="project">
+					<div class="icons">
+						{% for language in projet.language %}
+							<i class="{{ language.icon }}"></i>
+						{% endfor %}
+						{% for framework in projet.frameworks %}
+							<i class="{{ framework.icon }}"></i>
+						{% endfor %}
+					</div>
+					<h3>{{ projet.name }}</h3>
+					<img src="{{ projet.image }}" alt="">
+					<span class="infos" id="{{ projet.name }}" onclick=" handleclick('{{ projet.name }}')">
+						<i class="fas fa-plus-circle"></i>
+					</span>
+					<div class="showInfos hidden {{ projet.name }}">
+						<div class="infosContent">
+							<div class="head">
+								<h2>
+									<a href="#" class="h2" target="_blank">{{ projet.name }}</a>
+								</h2>
+								<div class="sourceCode">
+									<a href="{{ projet.linkSource }}" class="button" target="_blank">Code source</a>
+								</div>
+							</div>
+							<p class="text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus laboriosam aut nihil? Possimus, id facilis dignissimos repudiandae modi dolorum ea accusantium, veritatis debitis odio eveniet quos incidunt eaque nemo eius perferendis consequatur? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus laboriosam aut nihil? Possimus, id facilis dignissimos repudiandae modi dolorum ea accusantium.</p>
+							<div class="button return" onclick=" handleclick('{{ projet.name }}')">Retourner sur la page</div>
+						</div>
+					</div>
 				</div>
-				<h3>lorem.fr</h3>
-				<img src="https://github.com/XavierDepoortere/img/blob/main/project1.JPG?raw=true" alt="">
-				<span class="infos">
-					<i class="fas fa-plus-circle"></i>
-				</span>
-			</div>
+
+			{% endfor %}
 		</div>
 	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+var languageRadioButtons = document.querySelectorAll('input[type="radio"][name="search_data[language]"]');
+var languageSelect = document.querySelector('select[name="search_data[language]"]');
+
+
+languageRadioButtons.forEach(function (radioButton) {
+radioButton.addEventListener('change', function () { // Récupérez la valeur de l'option sélectionnée (ici, l'ID du langage)
+var selectedLanguageId = this.value;
+
+// Mettez à jour la valeur de la balise select
+
+
+// Appelez la fonction pour mettre à jour les projets avec la nouvelle langue sélectionnée
+updateProjects(selectedLanguageId);
+});
+});
+
+
+function updateProjects(languageId) {
+fetch('/portfolio/update/' + languageId).then(function (response) {
+return response.text();
+}).then(function (data) { // Mettre à jour la liste des projets avec les données reçues
+var projetsContainer = document.querySelector('.projets');
+projetsContainer.innerHTML = data;
+}).catch(function (error) {
+console.error('Erreur lors de la requête AJAX : ', error);
+});
+}
+
+});
+
+function handleclick(name) {
+let showInfos = document.querySelector (`.${name}`);
+showInfos.classList.toggle('hidden');
+}
+	</script>
+
 {% endblock %}

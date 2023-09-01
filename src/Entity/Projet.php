@@ -32,14 +32,14 @@ class Projet
     private ?string $linkSource = null;
 
     #[ORM\ManyToMany(targetEntity: Language::class, inversedBy: 'projets')]
-    private Collection $languages;
+    private Collection $language;
 
     #[ORM\ManyToMany(targetEntity: Framework::class, inversedBy: 'projets')]
     private Collection $frameworks;
 
     public function __construct()
     {
-        $this->languages = new ArrayCollection();
+        $this->language = new ArrayCollection();
         $this->frameworks = new ArrayCollection();
     }
 
@@ -111,15 +111,15 @@ class Projet
     /**
      * @return Collection<int, Language>
      */
-    public function getLanguages(): Collection
+    public function getLanguage(): Collection
     {
-        return $this->languages;
+        return $this->language;
     }
 
     public function addLanguage(Language $language): static
     {
-        if (!$this->languages->contains($language)) {
-            $this->languages->add($language);
+        if (!$this->language->contains($language)) {
+            $this->language->add($language);
         }
 
         return $this;
@@ -127,7 +127,7 @@ class Projet
 
     public function removeLanguage(Language $language): static
     {
-        $this->languages->removeElement($language);
+        $this->language->removeElement($language);
 
         return $this;
     }
